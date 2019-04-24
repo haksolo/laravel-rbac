@@ -24,12 +24,14 @@ class Facade extends BaseFacade
      */
     public static function routes(array $options = [])
     {
-        $router = static::$app->make('router');
+        static::$app->make('router')->resource('/role-bindings', '\RBAC\Controllers\RoleBindingController');
 
-        $router->resource('/roles', '\RBAC\Controllers\RoleController');
-        // $router->resource('/roles', \RBAC\Controllers\RoleController::class);
+        static::$app->make('router')->resource('/role-bindings/{role_binding}/subjects', '\RBAC\Controllers\RoleBindingSubjectController');
 
-        // $router->resource('/users', '\App\Http\Controllers\UserController');
-        // $router->resource('/roles', '\App\Http\Controllers\RoleController');
+        static::$app->make('router')->resource('/roles', '\RBAC\Controllers\RoleController');
+
+        static::$app->make('router')->resource('/roles/{role}/rules', '\RBAC\Controllers\RoleRuleController');
+
+        // static::$app->make('router')->resource('/roles/{role}/bindings', '\RBAC\Controllers\BindingController');
     }
 }
