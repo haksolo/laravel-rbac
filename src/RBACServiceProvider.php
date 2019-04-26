@@ -37,7 +37,7 @@ class RBACServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'rbac');
 
-        $this->loadMigrationsFrom(__DIR__.'/../migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         Relation::morphMap($this->subjects);
 
