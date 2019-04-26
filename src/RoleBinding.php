@@ -21,9 +21,18 @@ class RoleBinding extends Model
 
     public function subjects()
     {
-        // return $this->morphedByMany(\App\User::class, 'subject', 'role_binding_subjects');
-
         return $this->hasMany(RoleBindingSubject::class);
+
+        // return $this->morphedByMany(\App\User::class, 'subject', 'role_binding_subjects');
+    }
+
+    public static function create(array $attributes = [])
+    {
+        return tap(static::query()->create($attributes), function ($binding) use ($attributes) {
+            if (isset($attributes['subjects']) && is_array($attributes['subjects'])) {
+                $binding->subjects()->createMany($attributes['subjects']);
+            }
+        });
     }
 
     public function role()
