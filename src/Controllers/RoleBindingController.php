@@ -20,6 +20,8 @@ class RoleBindingController extends BaseController
 
     public function index()
     {
+        $this->authorize('index', RoleBinding::class);
+
         $roleBindings = RoleBinding::with(['role', 'subjects'])->get();
 
         return view('rbac::role-bindings.index', compact('roleBindings'));
