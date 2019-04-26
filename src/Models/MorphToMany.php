@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC;
+namespace RBAC\Models;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany as BaseMorphToMany;
 

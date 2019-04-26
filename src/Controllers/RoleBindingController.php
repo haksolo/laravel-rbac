@@ -2,8 +2,8 @@
 
 namespace RBAC\Controllers;
 
-use RBAC\Role;
-use RBAC\RoleBinding;
+use RBAC\Models\Role;
+use RBAC\Models\RoleBinding;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

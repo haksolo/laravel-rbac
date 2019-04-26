@@ -54,6 +54,8 @@ class RBACServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->singleton('rbac');
+        $this->app->singleton('rbac', function ($app) {
+            return new Manager($app);
+        });
     }
 }

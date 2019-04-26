@@ -24,7 +24,7 @@ class Policy
     {
         $resource = Str::snake(Str::plural(class_basename($resource)), '-');
 
-        if (! \RBAC\RoleBinding::subjectHasAccess($user, $resource, $ability)) {
+        if (! \RBAC\Models\RoleBinding::subjectHasAccess($user, $resource, $ability)) {
             return $this->deny();
         }
     }

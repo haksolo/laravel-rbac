@@ -2,7 +2,7 @@
 
 namespace RBAC\Controllers;
 
-use RBAC\Role;
+use RBAC\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
