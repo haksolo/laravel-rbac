@@ -3,13 +3,19 @@
 namespace RBAC\Controllers;
 
 use RBAC\Role;
+use RBAC\AuthorizesResources;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-// use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
-class RoleController // extends BaseController
+class RoleController extends BaseController
 {
-    use ValidatesRequests;
+    use AuthorizesRequests, ValidatesRequests, AuthorizesResources {
+        AuthorizesResources::resourceAbilityMap insteadof AuthorizesRequests;
+    }
+
+    protected $resource = Role::class;
 
     public function index()
     {

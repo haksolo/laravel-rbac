@@ -4,12 +4,19 @@ namespace RBAC\Controllers;
 
 use RBAC\Role;
 use RBAC\RoleBinding;
+use RBAC\AuthorizesResources;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
-class RoleBindingController
+class RoleBindingController extends BaseController
 {
-    use ValidatesRequests;
+    use AuthorizesRequests, ValidatesRequests, AuthorizesResources {
+        AuthorizesResources::resourceAbilityMap insteadof AuthorizesRequests;
+    }
+
+    protected $resource = RoleBinding::class;
 
     public function index()
     {
