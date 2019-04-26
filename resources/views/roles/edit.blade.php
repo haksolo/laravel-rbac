@@ -19,6 +19,7 @@
       <div class='invalid-feedback'>{{ $message }}</div>
       @enderror
     </div>
+    {{-- {{ $role->rules }} --}}
     <button type='submit' class='btn btn-primary'><span>Submit</span></button>
   </form>
 </div>

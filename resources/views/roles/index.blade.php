@@ -7,7 +7,7 @@
   <table class='table table-bordered'>
     <thead>
       <tr>
-        <th>Namespace</th>
+        <!-- <th>Namespace</th> -->
         <th>Name</th>
         <th>Rules</th>
         <th width='10'></th>
@@ -16,7 +16,7 @@
     <tbody>
       @foreach ($roles as $role)
       <tr>
-        <td>{{ $role->namespace }}</td>
+        <!-- <td>{{ $role->namespace }}</td> -->
         <td><a href="{{ route('roles.show', $role) }}">{{ $role->name }}</a></td>
         <td><a href="{{ route('rules.index', $role) }}">{{ $role->rules }}</a></td>
         <td class='text-nowrap'>

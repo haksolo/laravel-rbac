@@ -9,7 +9,7 @@
   <table class='table table-bordered'>
     <thead>
       <tr>
-        <th>Namespace</th>
+        <!-- <th>Namespace</th> -->
         <th>Name</th>
         <th>Role</th>
         <th>Subjects</th>
@@ -19,10 +19,12 @@
     <tbody>
       @foreach ($roleBindings as $roleBinding)
       <tr>
-        <td>{{ $roleBinding->namespace }}</td>
+        <!-- <td>{{ $roleBinding->namespace }}</td> -->
         <td><a href="{{ route('role-bindings.show', $roleBinding) }}">{{ $roleBinding->name }}</a></td>
-        <td><a href="{{ route('roles.show', $roleBinding->role) }}">{{ $roleBinding->role }}</a></td>
-        <td><a href="{{ route('subjects.index', $roleBinding) }}">{{ $roleBinding->subjects }}</a></td>
+        <td><a href="{{ route('roles.show', $roleBinding->role) }}">{{ $roleBinding->role->name }}</a></td>
+        <td>
+          <a href="{{ route('subjects.index', $roleBinding) }}">{{ $roleBinding->subjects }}</a>
+        </td>
         <td class='text-nowrap'>
           <form action="{{ route('role-bindings.destroy', $roleBinding) }}" method='POST'>
             @csrf
