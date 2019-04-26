@@ -37,6 +37,8 @@ class RBACServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'rbac');
 
+        $this->loadMigrationsFrom(__DIR__.'/../migrations');
+
         Relation::morphMap($this->subjects);
 
         Gate::guessPolicyNamesUsing(function ($model) {
