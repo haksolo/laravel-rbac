@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class RBACServiceProvider extends ServiceProvider
 {
+    protected $policy = Policies\Policy::class;
+
     /**
      * The policy mappings for the application.
      *
@@ -22,6 +24,10 @@ class RBACServiceProvider extends ServiceProvider
         'user' => \App\User::class,
     ];
 
+    protected $resources = [
+        //
+    ];
+
     /**
      * Bootstrap services.
      *
@@ -29,12 +35,13 @@ class RBACServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'rbac');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'rbac');
 
         Relation::morphMap($this->subjects);
 
-        Gate::guessPolicyNamesUsing(function ($modelClass) {
-            return \RBAC\Policies\Policy::class;
+        Gate::guessPolicyNamesUsing(function ($model) {
+            // dd($model);
+            return $this->policy;
         });
     }
 

@@ -3,7 +3,6 @@
 namespace RBAC\Controllers;
 
 use RBAC\Role;
-use RBAC\AuthorizesResources;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -11,14 +10,17 @@ use Illuminate\Routing\Controller as BaseController;
 
 class RoleController extends BaseController
 {
-    use AuthorizesRequests, ValidatesRequests, AuthorizesResources {
-        AuthorizesResources::resourceAbilityMap insteadof AuthorizesRequests;
-    }
+    use AuthorizesRequests, ValidatesRequests;
 
-    protected $resource = Role::class;
+    public function __construct()
+    {
+        $this->authorizeResource(Role::class);
+    }
 
     public function index()
     {
+        $this->authorize('index', Role::class);
+
         $roles = Role::with(['rules'])->get();
 
         return view('rbac::roles.index', compact('roles'));
@@ -53,6 +55,8 @@ class RoleController extends BaseController
 
     public function update(Request $request, Role $role)
     {
+        return $request->all();
+
         $this->validate($request, [
             'namespace' => 'required',
             'name' => 'required',
