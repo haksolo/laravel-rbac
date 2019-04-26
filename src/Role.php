@@ -26,6 +26,15 @@ class Role extends Model
         return $this->hasMany(RoleRule::class);
     }
 
+    public static function create(array $attributes = [])
+    {
+        return tap(static::query()->create($attributes), function ($role) use ($attributes) {
+            if (isset($attributes['rules']) && is_array($attributes['rules'])) {
+                $role->rules()->createMany($attributes['rules']);
+            }
+        });
+    }
+
     /*public function bindings()
     {
         return $this->hasMany(RoleBinding::class, 'role_name', 'name');
