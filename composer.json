@@ -1,5 +1,5 @@
 {
-    "name": "haksolo/laravel-rbac",
+    "name": "laravel-extended/rbac",
     "description": "Role-based access control for Laravel",
     "type": "library",
     "license": "MIT",
