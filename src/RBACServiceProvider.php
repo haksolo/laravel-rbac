@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC;
+namespace Extended\RBAC;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -39,12 +39,14 @@ class RBACServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        /*
         Relation::morphMap($this->subjects);
 
         Gate::guessPolicyNamesUsing(function ($model) {
             // dd($model);
             return $this->policy;
         });
+        */
     }
 
     /**

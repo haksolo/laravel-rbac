@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC\Contracts;
+namespace Extended\RBAC\Contracts;
 
 interface RoleSubject
 {

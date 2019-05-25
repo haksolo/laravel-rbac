@@ -1,10 +1,10 @@
 <?php
 
-namespace RBAC\Controllers;
+namespace Extended\RBAC\Foundation\Http\Controllers;
 
-use RBAC\Models\RoleBinding;
-use RBAC\Models\RoleBindingSubject;
-use RBAC\AuthorizesResources;
+use Extended\RBAC\Models\RoleBinding;
+use Extended\RBAC\Models\RoleBindingSubject;
+use Extended\RBAC\AuthorizesResources;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

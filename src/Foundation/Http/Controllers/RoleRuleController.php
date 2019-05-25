@@ -1,9 +1,9 @@
 <?php
 
-namespace RBAC\Controllers;
+namespace Extended\RBAC\Foundation\Http\Controllers;
 
-use RBAC\Models\Role;
-use RBAC\Models\RoleRule;
+use Extended\RBAC\Models\Role;
+use Extended\RBAC\Models\RoleRule;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 

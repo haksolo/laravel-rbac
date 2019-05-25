@@ -1,24 +1,23 @@
-@extends('layouts.app')
+@extends('domain::domain.security')
 
 @section('content')
 <div class='container'>
-  <form action="{{ route('roles.store') }}" method='POST'>
-    @csrf
-    <div class='form-group'>
-      <label for='namespace'>Namespace</label>
-      <input id='namespace' name='namespace' type='text' value="{{ old('namespace') }}" class="form-control{{ $errors->has('namespace') ? ' is-invalid' : '' }}" />
-      @error('namespace')
-      <div class='invalid-feedback'>{{ $message }}</div>
-      @enderror
-    </div>
-    <div class='form-group'>
-      <label for='name'>Name</label>
-      <input id='name' name='name' type='text' value="{{ old('name') }}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" />
-      @error('name')
-      <div class='invalid-feedback'>{{ $message }}</div>
-      @enderror
-    </div>
-    <button type='submit' class='btn btn-primary'><span>Submit</span></button>
-  </form>
+  <m-card>
+    <template #default>
+      <form action="{{ route('admin.roles.store') }}" method='POST' class='card-content'>
+        @csrf
+
+        <x-form-group error="{{ $errors->first('namespace') }}">
+          <m-text-field label='Namespace' name='namespace' value="{{ old('namespace') }}"></m-text-field>
+        </x-form-group>
+
+        <x-form-group error="{{ $errors->first('name') }}">
+          <m-text-field label='Name' name='name' value="{{ old('name') }}"></m-text-field>
+        </x-form-group>
+
+        <m-button type='submit' raised>Submit</m-button>
+      </form>
+    </template>
+  </m-card>
 </div>
 @endsection

@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC;
+namespace Extended\RBAC;
 
 use Illuminate\Container\Container;
 

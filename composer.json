@@ -9,18 +9,21 @@
             "email": "rtocubillo@gmail.com"
         }
     ],
-    "require": {},
+    "minimum-stability": "dev",
+    "require": {
+        "laravel-extended/domain": "dev-master",
+        "laravel-extended/material": "dev-master"
+    },
     "autoload": {
         "psr-4": {
-            "RBAC\\": "src/"
+            "Extended\\RBAC\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "RBAC\\RBACServiceProvider"
+                "Extended\\RBAC\\RBACServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

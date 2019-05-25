@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC;
+namespace Extended\RBAC;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 
@@ -24,14 +24,14 @@ class Facade extends BaseFacade
      */
     public static function routes(array $options = [])
     {
-        static::$app->make('router')->resource('/role-bindings', '\RBAC\Controllers\RoleBindingController');
+        static::$app->make('router')->resource('/roles', '\Extended\RBAC\Controllers\RoleController');
 
-        static::$app->make('router')->resource('/role-bindings/{role_binding}/subjects', '\RBAC\Controllers\RoleBindingSubjectController');
-
-        static::$app->make('router')->resource('/roles', '\RBAC\Controllers\RoleController');
-
-        static::$app->make('router')->resource('/roles/{role}/rules', '\RBAC\Controllers\RoleRuleController');
+        static::$app->make('router')->resource('/roles/{role}/rules', '\Extended\RBAC\Controllers\RoleRuleController');
 
         // static::$app->make('router')->resource('/roles/{role}/bindings', '\RBAC\Controllers\BindingController');
+
+        static::$app->make('router')->resource('/role-bindings', '\Extended\RBAC\Controllers\RoleBindingController');
+
+        static::$app->make('router')->resource('/role-bindings/{role_binding}/subjects', '\Extended\RBAC\Controllers\RoleBindingSubjectController');
     }
 }

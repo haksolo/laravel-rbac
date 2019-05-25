@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC\Policies;
+namespace Extended\RBAC\Policies;
 
 use App\User;
 use Illuminate\Support\Str;

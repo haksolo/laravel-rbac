@@ -1,6 +1,6 @@
 <?php
 
-namespace RBAC\Models;
+namespace Extended\RBAC\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
